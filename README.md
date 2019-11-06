@@ -4,7 +4,10 @@
 ```
 yarn install
 ```
-
+## Run json database
+```
+yarn run jsnsrv
+```
 ### Compiles and hot-reloads for development
 ```
 yarn serve
