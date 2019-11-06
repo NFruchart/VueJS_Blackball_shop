@@ -1,0 +1,109 @@
+{
+  "products": [
+    {
+      "id": "cc_monarch_3/4",
+      "marque": "Cue Craft",
+      "modele": "Monarch (3/4)",
+      "type": {
+        "fut": "Ebène",
+        "fleche": "Frêne"
+      },
+      "longueur": "146cm",
+      "jonction": "3/4 Quick Lock",
+      "prix": 399,
+      "image": "https://i.goopics.net/JdDjJ.png"
+    },
+    {
+      "id": "cc_mirage_1/2&3/4",
+      "marque": "Cue Craft",
+      "modele": "Mirage (1/2 & 4/5)",
+      "type": {
+        "fut": "Palissandre",
+        "fleche": "Frêne"
+      },
+      "longueur": "146.5cm",
+      "jonction": "1/2 et 4/5 Interlock system",
+      "prix": 169,
+      "image": "https://i.goopics.net/YwLJA.png"
+    },
+    {
+      "id": "mc_pro_butt",
+      "marque": "Master Cue",
+      "modele": "Pro Butt 4 (3/4)",
+      "type": {
+        "fut": "Ebène",
+        "fleche": "Frêne"
+      },
+      "longueur": "145cm",
+      "jonction": "3/4 laiton rapide",
+      "prix": 199,
+      "image": "https://i.goopics.net/pkPnN.png"
+    },
+    {
+      "id": "mc_royal",
+      "marque": "Master Cue",
+      "modele": "Royal (3/4)",
+      "type": {
+        "fut": "Ebène",
+        "fleche": "Frêne"
+      },
+      "longueur": "145cm",
+      "jonction": "3/4 laiton rapide",
+      "prix": 204,
+      "image": "https://i.goopics.net/RapJV.png"
+    },
+    {
+      "id": "per_blaze",
+      "marque": "Peradon",
+      "modele": "Blaze (3/4 + mini butt)",
+      "type": {
+        "fut": "Ebène",
+        "fleche": "Frêne finition huilée"
+      },
+      "longueur": "140cm",
+      "jonction": "3/4 laiton Quick Action",
+      "prix": 204,
+      "image": "https://i.goopics.net/vGPd9.png"
+    },
+    {
+      "id": "per_stafford",
+      "marque": "Peradon",
+      "modele": "Stafford (3/4)",
+      "type": {
+        "fut": "Palissandre",
+        "fleche": "Frêne finition huilée"
+      },
+      "longueur": "147cm",
+      "jonction": "3/4 laiton Quick Action",
+      "prix": 209,
+      "image": "https://i.goopics.net/7WwDa.png"
+    },
+    {
+      "id": "cl_48M",
+      "marque": "Christophe Lambert",
+      "modele": "48M Erable (3/4)",
+      "type": {
+        "fut": "Ebène",
+        "fleche": "Erable, finition mate"
+      },
+      "longueur": "140cm",
+      "jonction": "3/4 couleur Laiton",
+      "prix": 259,
+      "image": "https://i.goopics.net/xXYPo.png"
+    },
+    {
+      "id": "cl_40F",
+      "marque": "Christophe Lambert",
+      "modele": "40F (3/4)",
+      "type": {
+        "fut": "Palissandre finition ébène",
+        "fleche": "Frêne mature, finition mate"
+      },
+      "longueur": "140cm",
+      "jonction": "3/4 couleur Laiton",
+      "prix": 217,
+      "image": "https://i.goopics.net/ywY4g.png"
+    }
+  ],
+  "cart": []
+}
