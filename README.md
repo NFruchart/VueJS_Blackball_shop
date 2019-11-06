@@ -4,7 +4,7 @@
 ```
 yarn install
 ```
-## Run json database
+### Run json server for the database
 ```
 yarn run jsnsrv
 ```
