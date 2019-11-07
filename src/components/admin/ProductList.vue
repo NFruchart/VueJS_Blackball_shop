@@ -53,7 +53,6 @@ export default {
   },
   methods: {
     deleteProduct: function(product) {
-      console.log(product)
       this.$store.dispatch("deleteProduct", product);
     }
   },

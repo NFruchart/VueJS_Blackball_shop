@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.fc2e7f257b7a34c6d57d47afab4d2ca0.js"
+  "/precache-manifest.8e14a4cd99f23ef9b9d687af19a09fad.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vuex-commerce"});
