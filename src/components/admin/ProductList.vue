@@ -35,10 +35,9 @@
           </td>
           <td class="align-middle">
             <button
-              type="button"
               @click="deleteProduct(product)"
-              class="btn btn-danger bouton"
-            >Supprimer</button>
+              type="button"
+              class="btn btn-danger bouton">Supprimer</button>            
           </td>
         </tr>
       </tbody>
@@ -52,7 +51,7 @@ export default {
     this.$store.dispatch("getProducts");
   },
   methods: {
-    deleteProduct: function(product) {
+    deleteProduct(product) {
       this.$store.dispatch("deleteProduct", product);
     }
   },

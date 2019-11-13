@@ -58,13 +58,13 @@ export default new Vuex.Store({
     createProduct({ commit }, product) {
       productService.createProduct(product).then(() => {
         commit("CREATE_PRODUCT", product);
-        location.reload();
+        location.reload(true);
       });
     },
     deleteProduct({ commit }, product) {
       productService.deleteProduct(product).then(() => {
         commit("DELETE_PRODUCT", product);
-        location.reload();
+        location.reload(true);
       });
     },
     updateCart({ commit }, product) {
