@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import Products from "./Products";
+import Products from "@/views/TheProducts";
 export default {
   name: "home",
   components: {
     Products
-  },
+  }
 };
 </script>
 

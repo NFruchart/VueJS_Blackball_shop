@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import TheHome from "../views/TheHome.vue";
 
 Vue.use(VueRouter);
 
@@ -8,17 +8,17 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: Home
+    component: TheHome
   },
   {
     path: "/contact",
     name: "contact",
-    component: () => import("../views/Contact.vue")
+    component: () => import("../views/TheContact.vue")
   },
   {
     path: "/cart",
     name: "cart",
-    component: () => import("../views/Cart.vue")
+    component: () => import("../views/TheCart.vue")
   },
   {
     path: "/admin",
