@@ -40,14 +40,17 @@ export default {
     return cartInLocalStorage;
   },
   removeOneForCart(product) {
-    let cartInLocalStorage =
-      JSON.parse(localStorage.getItem("vuex-commerce-cart")) || {};
+    let cartInLocalStorage = JSON.parse(localStorage.getItem("vuex-commerce-cart")) || {};
     let products = cartInLocalStorage.products || [];
-    const index = products.findIndex(p => p.id === product.id);
-    products[index].quantity -= 1;
-    if (products[index].quantity === 0) {
-      products.splice(index, 1);
-    }
+    products = products
+      .map(p => {
+        if (p.id === product.id) {
+          product.quantity -= 1
+        }
+        return p
+      })
+      .filter(p => p.quantity > 0)
+
     cartInLocalStorage.products = products;
     localStorage.setItem(
       "vuex-commerce-cart",
