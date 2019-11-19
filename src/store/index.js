@@ -12,13 +12,17 @@ export default new Vuex.Store({
   },
   mutations: {
     GET_PRODUCTS(state, products) {
-      state.products = products;
+      if (state.products !== products) {
+        state.products = products;
+      }
     },
-    CREATE_PRODUCT(state, products) {
-      state.products = [products, ...state.products];
+    CREATE_PRODUCT(state, product) {
+      state.products.push(product);
     },
-    DELETE_PRODUCT(state, products) {
-      state.products = [products, ...state.products];
+    DELETE_PRODUCT(state, product) {
+      state.products = state.products.filter(
+        currentProduct => currentProduct.id !== product.id
+      );
     },
     GET_PRODUCTS_ERROR(state, error) {
       state.errors = [error, ...state.errors];
@@ -37,35 +41,29 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getProducts({ commit }) {
-      productService
-        .getProducts()
-        .then(res => {
-          commit("GET_PRODUCTS", res.data);
-        })
-        .catch(err => {
-          const error = {
-            date: new Date(),
-            message: `failed to retrieve products : ${err.message}`
-          };
-          commit("GET_PRODUCTS_ERROR", error);
-        });
+    async getProducts({ commit }) {
+      try {
+        const res = await productService.getProducts();
+        commit("GET_PRODUCTS", res.data);
+      } catch (err) {
+        const error = {
+          date: new Date(),
+          message: `failed to retrieve products : ${err.message}`
+        };
+        commit("GET_PRODUCTS_ERROR", error);
+      }
     },
     getArticlesInCart({ commit }) {
       let articlesInCard = productService.getArticlesInCart();
       commit("GET_ARTICLES_IN_CART", articlesInCard);
     },
     createProduct({ commit }, product) {
-      productService.createProduct(product).then(() => {
-        commit("CREATE_PRODUCT", product);
-        location.reload(true);
-      });
+      productService.createProduct(product);
+      commit("CREATE_PRODUCT", product);
     },
     deleteProduct({ commit }, product) {
-      productService.deleteProduct(product).then(() => {
-        commit("DELETE_PRODUCT", product);
-        location.reload(true);
-      });
+      productService.deleteProduct(product);
+      commit("DELETE_PRODUCT", product);
     },
     updateCart({ commit }, product) {
       const cartWithProducts = productService.addToCart(product);

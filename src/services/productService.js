@@ -3,14 +3,14 @@ import axios from "axios";
 let baseURL = "http://localhost:3000";
 
 export default {
-  getProducts() {
-    return axios.get(`${baseURL}/products`);
+  async getProducts() {
+    return await axios.get(`${baseURL}/products`);
   },
-  createProduct(cue) {
-    return axios.post(`${baseURL}/products`, cue);
+  async createProduct(cue) {
+    return await axios.post(`${baseURL}/products`, cue);
   },
-  deleteProduct(cue) {
-    return axios.delete(`${baseURL}/products/${cue.id}`, cue);
+  async deleteProduct(cue) {
+    return await axios.delete(`${baseURL}/products/${cue.id}`, cue);
   },
   getArticlesInCart() {
     let articlesInCart = JSON.parse(localStorage.getItem("vuex-commerce-cart"));
