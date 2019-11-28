@@ -24,6 +24,11 @@ export default new Vuex.Store({
         currentProduct => currentProduct.id !== product.id
       );
     },
+    UPDATE_PRODUCT(state, product) {
+      state.products = state.products.filter(
+        currentProduct => currentProduct.id === product.id
+      );
+    },
     GET_PRODUCTS_ERROR(state, error) {
       state.errors = [error, ...state.errors];
     },
@@ -44,7 +49,7 @@ export default new Vuex.Store({
     async getProducts({ commit }) {
       try {
         const res = await productService.getProducts();
-        commit("GET_PRODUCTS", res.data);
+        commit("GET_PRODUCTS", res.data.data);
       } catch (err) {
         const error = {
           date: new Date(),
@@ -64,6 +69,10 @@ export default new Vuex.Store({
     deleteProduct({ commit }, product) {
       productService.deleteProduct(product);
       commit("DELETE_PRODUCT", product);
+    },
+    async updateProduct({ commit }, product) {
+      const res = await productService.updateProduct(product);
+      commit("UPDATE_PRODUCT", res.data.data);
     },
     updateCart({ commit }, product) {
       const cartWithProducts = productService.addToCart(product);

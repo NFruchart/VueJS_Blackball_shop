@@ -13,7 +13,7 @@
       <span class="float-right">
         <router-link to="/cart">
           <i class="fas fa-shopping-cart"></i>
-          Panier ({{this.nbArticlesInCart()}})
+          Panier ({{ this.nbArticlesInCart() }})
         </router-link>
       </span>
     </div>
@@ -30,7 +30,7 @@ import { mapActions } from "vuex";
 export default {
   created() {
     if (!this.$store.state.cart.products) {
-      this.getArticlesInCart();      
+      this.getArticlesInCart();
     }
   },
   methods: {

@@ -1,6 +1,8 @@
 import axios from "axios";
 
-let baseURL = "http://localhost:3000";
+let baseURL = "https://api-blackball-shop.herokuapp.com/api-v1";
+// let baseURL = "http://localhost:8080/api-v1";
+// axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
 export default {
   async getProducts() {
@@ -10,7 +12,10 @@ export default {
     return await axios.post(`${baseURL}/products`, cue);
   },
   async deleteProduct(cue) {
-    return await axios.delete(`${baseURL}/products/${cue.id}`, cue);
+    return await axios.delete(`${baseURL}/products/${cue.mongoId}`, cue);
+  },
+  async updateProduct(cue) {
+    return await axios.put(`${baseURL}/products/${cue.mongoId}`, cue);
   },
   getArticlesInCart() {
     let articlesInCart = JSON.parse(localStorage.getItem("vuex-commerce-cart"));

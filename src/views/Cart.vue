@@ -22,15 +22,15 @@
               <td class="align-middle img-block">
                 <img
                   alt="cue image"
-                  :src="product.image"
+                  :src="product.picture"
                   class="product-list-image"
                 />
               </td>
-              <td class="align-middle">{{ product.marque }}</td>
-              <td class="align-middle">{{ product.modele }}</td>
+              <td class="align-middle">{{ product.brand }}</td>
+              <td class="align-middle">{{ product.model }}</td>
               <td class="align-middle">{{ product.quantity }}</td>
               <td class="align-middle">
-                {{ parseInt(product.prix).toFixed(2) }} €
+                {{ parseInt(product.price).toFixed(2) }} €
               </td>
               <td class="align-middle">
                 <button
@@ -56,7 +56,7 @@
                 </button>
               </td>
               <td class="align-middle">
-                {{ (product.quantity * parseInt(product.prix)).toFixed(2) }} €
+                {{ (product.quantity * parseInt(product.price)).toFixed(2) }} €
               </td>
             </tr>
           </tbody>

@@ -7,14 +7,14 @@
     >
       <div>
         <div class="title-color d-flex flex-column justify-content-center">
-          {{ product.marque }} {{ product.modele }}
+          {{ product.brand }} {{ product.model }}
         </div>
       </div>
 
       <div>
-        <img alt="cue image" :src="product.image" class="product-image" />
+        <img alt="cue image" :src="product.picture" class="product-image" />
         <div class="product-price">
-          {{ parseInt(product.prix).toFixed(2) }} €
+          {{ parseInt(product.price).toFixed(2) }} €
         </div>
       </div>
       <button @click="addToCart(product)" class="btn btn-add btn-dark">

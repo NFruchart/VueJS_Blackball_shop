@@ -23,12 +23,17 @@ const routes = [
   {
     path: "/admin",
     name: "admin",
-    component: () => import("../views/admin/Products.vue")
+    component: () => import("../components/admin/ProductList")
   },
   {
     path: "/admin/product-add",
     name: "admin-product-add",
     component: () => import("../views/admin/ProductAdd.vue")
+  },
+  {
+    path: "/admin/product-update/:id",
+    name: "admin-product-update",
+    component: () => import("../views/admin/ProductUpdate.vue")
   }
 ];
 
