@@ -77,14 +77,16 @@
 
 <script>
 import Modal from "../../views/Modal";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "ProductList",
   components: {
     Modal
   },
   created() {
-    this.$store.dispatch("getProducts");
+    this.getProducts()
   },
+
   data() {
     return {
       isModalVisible: false,
@@ -92,9 +94,14 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      updateCart: "updateCart",
+      getProducts: "getProducts",
+      deleteCue: "deleteProduct"
+    }),
     createProduct() {},
     deleteProduct(product) {
-      this.$store.dispatch("deleteProduct", product);
+      this.deleteCue(product)
       this.isModalVisible = true;
       this.modalMessage = "Le produit a bien été supprimé";
     },
@@ -103,13 +110,14 @@ export default {
     },
     closeModal() {
       this.isModalVisible = false;
-      location.reload(true);
+      // location.reload(true);
     }
   },
   computed: {
-    products() {
-      return this.$store.state.products;
-    }
+    ...mapGetters({
+      products: "getStateProducts",
+      cart: "getCart"
+    })
   }
 };
 </script>

@@ -28,7 +28,7 @@
 import { mapActions, mapGetters } from "vuex";
 export default {
   created() {
-    this.getProducts();
+    this.getProducts()
   },
   computed: {
     ...mapGetters({

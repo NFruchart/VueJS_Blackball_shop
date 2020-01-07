@@ -49,7 +49,7 @@ export default new Vuex.Store({
     async getProducts({ commit }) {
       try {
         const res = await productService.getProducts();
-        commit("GET_PRODUCTS", res.data.data);
+        commit("GET_PRODUCTS", res);
       } catch (err) {
         const error = {
           date: new Date(),

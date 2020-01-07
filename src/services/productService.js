@@ -6,7 +6,8 @@ let baseURL = "https://api-blackball-shop.herokuapp.com/api-v1";
 
 export default {
   async getProducts() {
-    return await axios.get(`${baseURL}/products`);
+    const response = await axios.get(`${baseURL}/products`);
+    return response.data.data;
   },
   async createProduct(cue) {
     return await axios.post(`${baseURL}/products`, cue);

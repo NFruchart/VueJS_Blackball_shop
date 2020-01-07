@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="formTitle">
+      <h3>{{ formTitle }}</h3>
+    </div>
     <form @submit.prevent="submit">
       <div class="d-flex justify-content-between">
         <div class="d-flex flex-column col-6">
@@ -10,7 +13,7 @@
               class="form-control"
               id="id"
               placeholder="Entrer l'ID"
-              v-model.lazy="cue.id"
+              v-model="cue.id"
             />
           </div>
           <div class="form-group">
@@ -20,7 +23,7 @@
               class="form-control"
               id="Marque"
               placeholder="Marque"
-              v-model.lazy="cue.brand"              
+              v-model="cue.brand"
             />
           </div>
           <div class="form-group">
@@ -30,7 +33,7 @@
               class="form-control"
               id="modele"
               placeholder="Modèle"
-              v-model.lazy="cue.model"
+              v-model="cue.model"
             />
           </div>
           <div class="form-group">
@@ -40,7 +43,7 @@
               class="form-control"
               id="fut"
               placeholder="Type de fût"
-              v-model.lazy="cue.type.butt"
+              v-model="cue.type.butt"
             />
           </div>
           <div class="form-group">
@@ -50,7 +53,7 @@
               class="form-control"
               id="fleche"
               placeholder="Type de flèche"
-              v-model.lazy="cue.type.shaft"
+              v-model="cue.type.shaft"
             />
           </div>
         </div>
@@ -62,7 +65,7 @@
               class="form-control"
               id="longueur"
               placeholder="Longueur"
-              v-model.lazy="cue.length"
+              v-model="cue.length"
             />
           </div>
           <div class="form-group">
@@ -72,7 +75,7 @@
               class="form-control"
               id="jonction"
               placeholder="Type de jonction"
-              v-model.lazy="cue.joint"
+              v-model="cue.joint"
             />
           </div>
           <div class="form-group">
@@ -82,7 +85,7 @@
               class="form-control"
               id="prix"
               placeholder="Prix"
-              v-model.lazy="cue.price"
+              v-model="cue.price"
             />
           </div>
           <div class="form-group">
@@ -92,7 +95,7 @@
               class="form-control"
               id="image"
               placeholder="Image"
-              v-model.lazy="cue.picture"
+              v-model="cue.picture"
             />
           </div>
           <div class="btn-validation">
@@ -113,16 +116,20 @@
 </template>
 
 <script>
+import productService from "../../services/productService";
 import Modal from "../../views/Modal";
 export default {
   name: "ProductForm",
   components: {
     Modal
   },
-  created() {
+  async created() {
     if (this.$route.name === "admin-product-update") {
-      this.cue = this.$store.state.products[0];
-      console.log(this.cue);
+      const cues = await productService.getProducts();
+      this.cue = cues.find(cue => cue.mongoId === this.$route.params.id);
+      this.formTitle = "Modifier un produit";
+    } else if (this.$route.name === "admin-product-add") {
+      this.formTitle = "Ajouter un nouveau produit";
     }
   },
   data() {
@@ -141,7 +148,8 @@ export default {
         picture: ""
       },
       isModalVisible: false,
-      modalMessage: ""
+      modalMessage: "",
+      formTitle: ""
     };
   },
   methods: {
@@ -149,31 +157,30 @@ export default {
       if (this.$route.name === "admin-product-add") {
         this.$store.dispatch("createProduct", this.cue);
         this.modalMessage = "Le produit a bien été ajouté";
-        console.log("créer");
       } else if (this.$route.name === "admin-product-update") {
         this.$store.dispatch("updateProduct", this.cue);
         this.modalMessage = "Le produit a bien été modifié";
-        console.log("modifier");
-        console.log("productForm submit this.cue.id" + this.cue.id);
       }
-    },
-    handleChange($event) {
-      console.log($event.target.value);
     },
     showModal() {
       this.isModalVisible = true;
     },
     closeModal() {
       this.isModalVisible = false;
-      if (this.$route.name === "admin-product-add") location.reload(true);
+      this.$router.push({ name: "admin" });
     }
   }
 };
 </script>
 
 <style scoped>
+.formTitle {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 label {
   color: white;
+  font-weight: bold;
 }
 .btn-validation {
   text-align: center;

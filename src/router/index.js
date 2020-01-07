@@ -28,12 +28,12 @@ const routes = [
   {
     path: "/admin/product-add",
     name: "admin-product-add",
-    component: () => import("../views/admin/ProductAdd.vue")
+    component: () => import("../../src/components/admin/ProductForm")
   },
   {
     path: "/admin/product-update/:id",
     name: "admin-product-update",
-    component: () => import("../views/admin/ProductUpdate.vue")
+    component: () => import("../../src/components/admin/ProductForm")
   }
 ];
 
